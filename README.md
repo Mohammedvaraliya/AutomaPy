@@ -2,6 +2,7 @@
 
 The package contains a set of tools and algorithms for theoretical computer science, which could include automata theory as well as other topics.
 
+
 ## Examples of How To Use (AutomaPy)
 
 1. Design a program for accepting decimal number divisible by 2.
