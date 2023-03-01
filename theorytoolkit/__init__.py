@@ -1,1 +1,1 @@
-from main import DFA
+from theorytoolkit.main import DFA

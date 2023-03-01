@@ -2,9 +2,13 @@ from setuptools import setup, find_packages
 import codecs
 import os
 
-VERSION = '0.0.1'
+here = os.path.abspath(os.path.dirname(__file__))
+
+with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
+    long_description = "\n" + fh.read()
+
+VERSION = '1.0.0'
 DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, and Moore machines.'
-LONG_DESCRIPTION = 'The package contains a set of tools and algorithms for theoretical computer science, which could include automata theory as well as other topics.'
 
 # Setting up
 setup(
@@ -14,7 +18,7 @@ setup(
     author_email="<mail@neuralnine.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
-    long_description=LONG_DESCRIPTION,
+    long_description=long_description,
     packages=find_packages(),
     install_requires=[],
     keywords=['python', 'DFA', 'NDFA',

@@ -1,8 +1,8 @@
 class DFA:
-    def __init__(self):
-        self.input_state = {}
-        self.initial_state = None
-        self.final_state = []
+    def __init__(self, input_state = {}, initial_state = None, final_state = []):
+        self.input_state = input_state
+        self.initial_state = initial_state
+        self.final_state = final_state
 
     def addState(self, state_name: str, paths, initial_state=False, final_state=False):
         a = self.input_state[state_name] = paths
