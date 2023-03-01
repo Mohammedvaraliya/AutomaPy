@@ -7,12 +7,12 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.2'
+VERSION = '1.0.4'
 DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, and Moore machines.'
 
 # Setting up
 setup(
-    name="theorytoolkit",
+    name="AutomaPy",
     version=VERSION,
     author="Mohammed Varaliya",
     author_email="<mail@neuralnine.com>",
