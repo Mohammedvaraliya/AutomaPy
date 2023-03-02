@@ -1,10 +1,34 @@
 class DFA:
     def __init__(self, input_state = {}, initial_state = None, final_state = []):
+        """
+        Initializes a new DFA object.
+
+        :param input_state: A dictionary representing the transition function of the DFA.
+        :type input_state: dict
+        :param initial_state: The initial state of the DFA.
+        :type initial_state: str
+        :param final_state: The set of final states of the DFA.
+        :type final_state: list
+        """
         self.input_state = input_state
         self.initial_state = initial_state
         self.final_state = final_state
 
     def addState(self, state_name: str, paths, initial_state=False, final_state=False):
+        """
+        Adds a new state to the DFA.
+
+        :param state_name: The name of the new state.
+        :type state_name: str
+        :param paths: A dictionary representing the transition function of the new state.
+        :type paths: dict
+        :param initial_state: Whether the new state is the initial state of the DFA.
+        :type initial_state: bool
+        :param final_state: Whether the new state is a final state of the DFA.
+        :type final_state: bool
+        :return: The transition function of the new state.
+        :rtype: dict
+        """
         a = self.input_state[state_name] = paths
 
         if initial_state:
@@ -16,6 +40,14 @@ class DFA:
         return a
     
     def endingWithOneZeroOne(self, string:str):
+        """
+        Checks whether a string ends with '101'.
+
+        :param string: The input string to check.
+        :type string: str
+        :return: True if the string ends with '101', False otherwise.
+        :rtype: bool
+        """
         current_state = self.initial_state # By defaul initial state
 
         for s in string:
@@ -27,6 +59,14 @@ class DFA:
         return False
     
     def decimalNumberDivisibleByTwo(self, string: str):
+        """
+        Checks whether a binary string represents a decimal number divisible by two.
+
+        :param string: The input binary string to check.
+        :type string: str
+        :return: True if the binary string represents a decimal number divisible by two, False otherwise.
+        :rtype: bool
+        """
         current_state = self.initial_state  # By defaul initial state
 
         for s in string:
@@ -37,6 +77,14 @@ class DFA:
         return False
 
     def tokenize(self, input_str):
+        """
+        Splits a string into tokens.
+
+        :param input_str: The input string to tokenize.
+        :type input_str: str
+        :return: A list of tokens.
+        :rtype: list
+        """
         tokens = []
         word = ""
 
@@ -51,6 +99,14 @@ class DFA:
         return tokens
 
     def threeConsecutiveOne(self, string: str):
+        """
+        Checks whether a string contains three consecutive ones.
+
+        :param string: The input string to check.
+        :type string: str
+        :return: True if the string contains three consecutive ones, False otherwise.
+        :rtype: bool
+        """
         current_state = self.initial_state  # By defaul initial state
 
         for s in string:
@@ -62,6 +118,16 @@ class DFA:
         return False
     
     def equalNumberOfOneZero(self, string: str):
+        """
+        Checks whether the given string has an equal number of 1's and 0's by traversing the DFA.
+        
+        Args:
+            string (str): The input string to check for an equal number of 1's and 0's.
+            
+        Returns:
+            bool: True if the input string has an equal number of 1's and 0's and ends in a final state,
+                False otherwise.
+        """
         current_state = self.initial_state # By defaul initial state
         count_0 = 0
         count_1 = 0
@@ -80,6 +146,16 @@ class DFA:
         return False
     
     def countNumberOfOneZero(self, string: str):
+        """
+        Counts the number of 1's and 0's in the given string by traversing the DFA.
+        
+        Args:
+            string (str): The input string to count the number of 1's and 0's.
+            
+        Returns:
+            str: A string indicating the number of 1's and 0's in the input string in the format 
+                "The Number of 1's is {count_1} and number of 0's is {count_0}".
+        """
         current_state = self.initial_state # By defaul initial state
         count_0 = 0
         count_1 = 0
@@ -95,14 +171,18 @@ class DFA:
         return f"The Number of 1's is {count_1} and number of 0's is {count_0}"
 
     def print_state(self):
+        """
+        Prints the current state transition table of the DFA.
+        """
         for key, value in self.input_state.items():
             print(key, ":", value)
 
 
-dfa = DFA()
 
 
 if __name__ == "__main__":
+    
+    dfa = DFA()
 
     # Create a program that implements a machine that accepts strings ending with '101'.(Success)
     '''

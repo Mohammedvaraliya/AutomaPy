@@ -7,8 +7,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.7'
-DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, and Moore machines.'
+VERSION = '1.0.8'
+DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, Moore machines and Finite state machine.'
 
 # Setting up
 setup(
