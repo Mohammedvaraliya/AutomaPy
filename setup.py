@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.6'
+VERSION = '1.0.7'
 DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, and Moore machines.'
 
 # Setting up
@@ -22,7 +22,7 @@ setup(
     packages=find_packages(),
     install_requires=[],
     keywords=['python', 'DFA', 'NDFA',
-              'Mealy machines', 'Moore machines', 'Automata', 'Theory of Computation'],
+              'Mealy machines', 'Moore machines', 'Automata', 'Theory of Computation', 'Finite State Machine', 'Finite Automaton'],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
