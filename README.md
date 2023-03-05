@@ -23,6 +23,18 @@ print(dfa.endingWithOneZeroOne("01101"))
 print(dfa.endingWithOneZeroOne("011011"))
 
 ```
+
+The code creates a `DFA` object and defines four states: `A`, `B`, `C`, and `D`. The transitions between these states are defined by dictionaries that map input symbols (0 or 1) to the next state. The initial state is set to `A`, and the final state is set to `D`.
+
+The code then uses the `endingWithOneZeroOne` method of the DFA object to check if the given strings end with the pattern `"101"`. This method takes a string as input and returns `True` if the DFA accepts the string (i.e., if it ends in the final state), and `False` otherwise.
+
+The first call to `endingWithOneZeroOne` with the input string `"101"` returns `True` because the DFA transitions from state `A` to state `B` on the first `"1"`, then from state `B` to state C on the `"0"`, and finally from state `C` to state `D` on the "1", which is the final state.
+
+The second call to `endingWithOneZeroOne` with the input string `"01101"` also returns `True` because the DFA follows the same transitions as in the first case, but with an additional `"0"` input that takes it from state `A` to state `C`.
+
+The third call to `endingWithOneZeroOne` with the input string `"011011"` returns False because the DFA transitions from state `A` to state `C` on the first `"0"`, then from state `C` to state `A` on the second `"1"`, and finally from state A to state `B` on the third `"1"`, which is not the final state.
+
+
 #### Design a Program for creating machine that accepts three consecutive one.
 
 ```py
@@ -45,6 +57,18 @@ print(dfa.threeConsecutiveOne("01011"))
 print(dfa.threeConsecutiveOne("010101"))
 
 ```
+
+The code creates a DFA object and defines eight states: `A`, `B`, `C`, `D`, `E`, `F`, `G`, and `H`. The transitions between these states are defined by dictionaries that map input symbols (0 or 1) to the next state. The initial state is set to `A`, and the final states are set to `D`, `F`, `G`, and `H`.
+
+The code then uses the `threeConsecutiveOne` method of the DFA object to check if the given strings contain three consecutive ones. This method takes a string as input and returns `True` if the DFA accepts the string (i.e., if it ends in one of the final states), and `False` otherwise.
+
+The first call to `threeConsecutiveOne` with the input string `"010111"` returns `True` because the DFA transitions from state `A` to state `B` on the first `"0"`, then from state `B` to state `C` on the first `"1"`, then from state `C` to state `D` on the second `"1"`, and finally to one of the final states `(F, G, or H)` on the third `"1"`.
+
+The second call to `threeConsecutiveOne` with the input string `"01011"` returns `False` because the `DFA` transitions from state `A` to state `B` on the first `"0"`, then from state `B` to state `C` on the first `"1"`, then from state `C` to state `D` on the second `"1"`, but it does not reach a final state because there is no third `"1"`.
+
+The third call to `threeConsecutiveOne` with the input string `"010101"` returns `False` because the DFA transitions from state `A` to state `B` on the first `"0"`, then from state `B` to state `A` on the first `"1"`, then from state `A` to state `B` on the second `"0"`, then from state `B` to state `A` on the second `"1"`, and finally from state `A` to state `B` on the third `"0"`, which is not a valid transition according to the DFA definition.
+
+
 #### Write a program for tokenization of given input.
 
 ```py
