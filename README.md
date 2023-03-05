@@ -3,6 +3,11 @@
 The package contains a set of tools and algorithms for theoretical computer science, which could include automata theory as well as other topics.
 
 
+## Installation
+
+    pip install AutomaPy
+
+
 ## Examples of How To Use (AutomaPy)
 
 #### Create a program that implements a machine that accepts strings ending with '101'.
@@ -80,6 +85,12 @@ dfa = DFA()
 print(dfa.tokenize("This is an example of tokenization."))
 
 ```
+
+The `tokenize` method of the DFA object is then used to `tokenize` a given string. This method takes a string as input and returns a list of tokens, where each token is a tuple that contains the token type and the token value.
+
+In the given code, the `tokenize` method is called with the input string `"This is an example of tokenization."`. The method uses the predefined rules to split the input string into `tokens`, which are returned as a list of tuples. Each tuple contains a token type and the corresponding token value. For example, the first tuple in the list might be ('WORD', `'This'`), indicating that the token is a word and its value is `"This"`.
+
+
 #### Design a program for accepting decimal number divisible by 2.
 
 ```py
@@ -96,6 +107,10 @@ print(dfa.decimalNumberDivisibleByTwo("110")) # Decimal number of "10" is 6
 print(dfa.decimalNumberDivisibleByTwo("101")) # Decimal number of "10" is 5
 
 ```
+
+The code creates a DFA that recognizes decimal numbers divisible by 2 using the AutomaPy package. The DFA has two states `("A" and "B")` and transitions based on input symbols `"0"` and `"1"`. The `decimalNumberDivisibleByTwo` method simulates the DFA on a decimal number represented as a string and returns `True` if the DFA reaches a final state after consuming the entire string, indicating that the number is divisible by 2. The method is called with three different input strings and returns `True` for the first two and `False` for the last one, based on whether the input string represents a decimal number that is divisible by 2 or not.
+
+
 #### Design a program for creating a machine which accepts string having equal no. of 1’s and 0’s.
 
 ```py
@@ -112,11 +127,17 @@ print(dfa.equalNumberOfOneZero("101100"))
 print(dfa.equalNumberOfOneZero("1011"))
 
 ```
+
+The code creates a DFA that recognizes strings containing an equal number of `1s` and `0s` using the AutomaPy package. The DFA has two states `("A" and "B")` and transitions based on input symbols `"0"` and `"1"`. The `equalNumberOfOneZero` method simulates the DFA on an input string and returns `True` if the DFA reaches a final state after consuming the entire string, indicating that the string has an equal number of `1s` and `0s`. The method is called with three different input strings and returns `True` for the first and last one and `False` for the second one, based on whether the input string has an equal number of `1s` and `0s` or not.
+
+
 #### Design a program for creating a machine which count number of 1's and 0's in a given string.
 
 ```py
 
 from AutomaPy import DFA
+
+dfa = DFA()
 
 dfa.addState("A", {"0": "A", "1": "A"}, initial_state=True)
 
@@ -126,3 +147,13 @@ print(dfa.countNumberOfOneZero("011111"))
 print(dfa.countNumberOfOneZero("00000"))
 
 ```
+
+The `countNumberOfOneZero` method in the code counts the number of occurrences of `"0"` and `"1"` symbols in the input string and returns the count as a string.
+
+For example, if the input string is `"0101"`, the method will return `"The number of 0's is 2 and the number of 1's is 2"`. Similarly, if the input string is `"011111"`, the method will return `"The number of 0's is 1 and the number of 1's is 5"`.
+
+
+
+
+
+
