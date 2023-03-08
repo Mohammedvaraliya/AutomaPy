@@ -120,7 +120,7 @@ from AutomaPy import DFA
 dfa = DFA()
 
 dfa.addState("A", {"0": "B", "1": "B"}, initial_state=True, final_state=True)
-dfa.addState("B", {"0": "A", "1": "A"}, final_state=True)
+dfa.addState("B", {"0": "A", "1": "A"})
 
 print(dfa.equalNumberOfOneZero("10"))
 print(dfa.equalNumberOfOneZero("101100"))

@@ -230,7 +230,7 @@ if __name__ == "__main__":
     # Design a program for creating a machine which accepts string having equal no. of 1’s and 0’s.(Success)
     '''
     dfa.addState("A", {"0": "B", "1": "B"}, initial_state=True, final_state=True)
-    dfa.addState("B", {"0": "A", "1": "A"}, final_state=True)
+    dfa.addState("B", {"0": "A", "1": "A"})
 
     print(dfa.equalNumberOfOneZero("10"))
     print(dfa.equalNumberOfOneZero("101100"))
