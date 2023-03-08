@@ -128,7 +128,7 @@ print(dfa.equalNumberOfOneZero("1011"))
 
 ```
 
-The code creates a DFA that recognizes strings containing an equal number of `1s` and `0s` using the AutomaPy package. The DFA has two states `("A" and "B")` and transitions based on input symbols `"0"` and `"1"`. The `equalNumberOfOneZero` method simulates the DFA on an input string and returns `True` if the DFA reaches a final state after consuming the entire string, indicating that the string has an equal number of `1s` and `0s`. The method is called with three different input strings and returns `True` for the first and last one and `False` for the second one, based on whether the input string has an equal number of `1s` and `0s` or not.
+The code creates a DFA that recognizes strings containing an equal number of `1s` and `0s` using the AutomaPy package. The DFA has two states `("A")` and transitions based on input symbols `"0"` and `"1"`. The `equalNumberOfOneZero` method simulates the DFA on an input string and returns `True` if the DFA reaches a final state after consuming the entire string, indicating that the string has an equal number of `1s` and `0s`. The method is called with three different input strings and returns `True` for the first and last one and `False` for the second one, based on whether the input string has an equal number of `1s` and `0s` or not.
 
 
 #### Design a program for creating a machine which count number of 1's and 0's in a given string.
