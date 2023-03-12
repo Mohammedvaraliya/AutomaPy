@@ -179,6 +179,107 @@ class DFA:
 
 
 
+class TuringMachine:
+    def __init__(self, input_state = {}, initial_state = None, final_state = []):
+        """
+        Initializes a new TuringMAchine object.
+
+        :param input_state: A dictionary representing the transition function of the TuringMachine.
+        :type input_state: dict
+        :param initial_state: The initial state of the TuringMachine.
+        :type initial_state: str
+        :param final_state: The set of final states of the TuringMachine.
+        :type final_state: list
+        """
+        self.input_state = input_state
+        self.initial_state = initial_state
+        self.final_state = final_state
+
+    def addState(self, state_name: str, paths, initial_state=False, final_state=False):
+        """
+        Adds a new state to the TuringMachine.
+
+        :param state_name: The name of the new state.
+        :type state_name: str
+        :param paths: A dictionary representing the transition function of the new state.
+        :type paths: dict
+        :param initial_state: Whether the new state is the initial state of the TuringMachine.
+        :type initial_state: bool
+        :param final_state: Whether the new state is a final state of the TuringMachine.
+        :type final_state: bool
+        :return: The transition function of the new state.
+        :rtype: dict
+        """
+        a = self.input_state[state_name] = paths
+
+        if initial_state:
+            self.initial_state = state_name
+
+        if final_state:
+            self.final_state.append(state_name)
+
+        return a
+
+    def turingMachineEvenOnes(self, input_str):
+        """
+        Simulates a Turing machine on a given input string.
+
+        This function takes an input string and simulates a Turing machine on it using a set of predefined rules. The rules are stored in the `input_state` dictionary, which maps each state to a dictionary of transitions, where each transition is defined as a tuple of the form (new_state, write_value, move_dir).
+
+        Args:
+            input_str (str): The input string to simulate the Turing machine on.
+
+        Returns:
+            bool: True if the Turing machine accepts the input string, False otherwise.
+
+        Raises:
+            KeyError: If the current state does not have a transition defined for the current input symbol.
+
+        Example:
+            >>> input_state = {
+            ...     'A': {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('D', '_', 'L')},
+            ...     'B': {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('C', '_', 'L')},
+            ...     'C': {'0': ('C', '0', 'L'), '1': ('C', '1', 'L'), '_': ('A', '_', 'R')},
+            ...     'D': {'0': ('D', '0', 'L'), '1': ('D', '1', 'L'), '_': ('E', '_', 'R')},
+            ...     'E': {'0': ('D', '0', 'R'), '1': ('D', '1', 'R'), '_': ('F', '_', 'L')},
+            ...     'F': {'0': ('F', '0', 'L'), '1': ('F', '1', 'L'), '_': ('A', '_', 'R')},
+            ... }
+            >>> initial_state = 'A'
+            >>> final_state = {'A'}
+            >>> tm = TuringMachine(input_state, initial_state, final_state)
+            >>> tm.turing_machine('011')
+            True
+            >>> tm.turing_machine('1101')
+            False
+        """
+        current_state = self.initial_state
+        tape = list(input_str)
+        i_head = 0
+
+        if len(input_str) == 0:
+            return True
+
+        while True:
+            if tape[i_head] not in self.input_state[current_state]:
+                return False
+
+            new_state, write_value, move_dir = self.input_state[current_state][tape[i_head]]
+            tape[i_head] = write_value
+
+            if move_dir == 'R':
+                i_head += 1
+            elif move_dir == 'L':
+                i_head -= 1
+
+            current_state = new_state
+
+            if current_state in self.final_state and i_head >= len(tape):
+                return True
+            elif current_state not in self.input_state or i_head >= len(tape) or i_head < 0:
+                return False
+
+
+
 
 if __name__ == "__main__":
     
@@ -246,4 +347,21 @@ if __name__ == "__main__":
     print(dfa.countNumberOfOneZero("011111"))
     print(dfa.countNumberOfOneZero("00000"))
     '''
+
+    # Design a program for Turing machine that’s accepts the even number of 1's.(Success)
+    '''
+    tm = TuringMachine()
+
+    tm.addState('A', {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('D', '_', 'L')}, initial_state=True, final_state=True)
+    tm.addState('B', {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('C', '_', 'L')})
+    tm.addState('C', {'0': ('C', '0', 'L'), '1': ('C', '1', 'L'), '_': ('A', '_', 'R')})
+    tm.addState('D', {'0': ('D', '0', 'L'), '1': ('D', '1', 'L'), '_': ('E', '_', 'R')})
+    tm.addState('E', {'0': ('D', '0', 'R'), '1': ('D', '1', 'R'), '_': ('F', '_', 'L')})
+    tm.addState('F', {'0': ('F', '0', 'L'), '1': ('F', '1', 'L'), '_': ('A', '_', 'R')})
+
+    print(tm.turingMachineEvenOnes("")) # True (because 0 is even number)
+    print(tm.turingMachineEvenOnes("1")) # False
+    print(tm.turingMachineEvenOnes("1111")) # True
+    '''
+
 
