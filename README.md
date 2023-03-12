@@ -1,5 +1,10 @@
 ## AutomaPy
 
+[![Latest PyPI version](https://img.shields.io/pypi/v/AutomaPy.svg)](https://pypi.python.org/pypi/AutomaPy/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/AutomaPy.svg)](https://pypi.python.org/pypi/AutomaPy/)
+[![Total downloads](https://pepy.tech/badge/AutomaPy)](https://pepy.tech/project/AutomaPy)
+
+
 The package contains a set of tools and algorithms for theoretical computer science, which could include automata theory as well as other topics.
 
 
