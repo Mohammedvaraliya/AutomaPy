@@ -12,8 +12,8 @@ def read_description():
         return contents.strip()
     
 
-VERSION = '1.2.1'
-DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, Moore machines and Finite state machine.'
+VERSION = '1.2.2'
+DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, Moore machines, Finite state machine and Turing machine.'
 
 # Setting up
 setup(
@@ -27,9 +27,9 @@ setup(
     packages=find_packages(),
     install_requires=[],
     keywords=['python', 'DFA', 'NDFA',
-              'Mealy machines', 'Moore machines', 'Automata', 'Theory of Computation', 'Finite State Machine', 'Finite Automaton'],
+              'Mealy machines', 'Moore machines', 'Automata', 'Theory of Computation', 'Finite State Machine', 'Finite Automaton', 'Turing Machine'],
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
