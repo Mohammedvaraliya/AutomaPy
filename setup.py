@@ -1,13 +1,18 @@
 from setuptools import setup, find_packages
-import codecs
-import os
+import re
 
-here = os.path.abspath(os.path.dirname(__file__))
+REPO_URL = "https://github.com/Mohammedvaraliya/AutomaPy"
 
-with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
-    long_description = "\n" + fh.read()
+def read_description():
+    with open("README.md") as f:
+        header = "For more information, see the [GitHub Repository]" \
+                 "({0}).".format(REPO_URL)
+        filter_re = re.compile(r'.*\bPyPI\b.*')
+        contents = header + "\n" + filter_re.sub("", f.read())
+        return contents.strip()
+    
 
-VERSION = '1.1.5'
+VERSION = '1.1.7'
 DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, Moore machines and Finite state machine.'
 
 # Setting up
@@ -18,7 +23,7 @@ setup(
     author_email="<mohammedvaraliya2661392@gmail.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
-    long_description=long_description,
+    long_description=read_description(),
     packages=find_packages(),
     install_requires=[],
     keywords=['python', 'DFA', 'NDFA',
@@ -30,5 +35,6 @@ setup(
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
+        "Operating System :: POSIX :: Linux",
     ]
 )
