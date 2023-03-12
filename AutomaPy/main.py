@@ -284,6 +284,7 @@ class TuringMachine:
 if __name__ == "__main__":
     
     dfa = DFA()
+    tm = TuringMachine()
 
     # Create a program that implements a machine that accepts strings ending with '101'.(Success)
     '''
@@ -350,8 +351,6 @@ if __name__ == "__main__":
 
     # Design a program for Turing machine that’s accepts the even number of 1's.(Success)
     '''
-    tm = TuringMachine()
-
     tm.addState('A', {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('D', '_', 'L')}, initial_state=True, final_state=True)
     tm.addState('B', {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('C', '_', 'L')})
     tm.addState('C', {'0': ('C', '0', 'L'), '1': ('C', '1', 'L'), '_': ('A', '_', 'R')})
