@@ -158,7 +158,26 @@ The `countNumberOfOneZero()` method in the code counts the number of occurrences
 For example, if the input string is `"0101"`, the method will return `"The number of 0's is 2 and the number of 1's is 2"`. Similarly, if the input string is `"011111"`, the method will return `"The number of 0's is 1 and the number of 1's is 5"`.
 
 
+### Design a program for Turing machine that’s accepts the even number of 1's.
 
+```py
+
+from AutomaPy import TuringMachine
+
+tm = TuringMachine()
+
+tm.addState('A', {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('B', '_', 'L')}, initial_state=True, final_state=True)
+tm.addState('B', {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('A', '_', 'L')})
+
+print(tm.turingMachineEvenOnes("")) # True (because 0 is even number)
+print(tm.turingMachineEvenOnes("1")) # False
+print(tm.turingMachineEvenOnes("1111")) # True
+
+```
+
+The `turingMachineEvenOnes()` method checks whether a binary input string has an even number of `1's` using the Turing machine defined in the example. 
+
+It returns a boolean indicating whether the input string is accepted by the Turing machine, which is `True` if the string has an even number of `1's` and `False` otherwise.
 
 
 

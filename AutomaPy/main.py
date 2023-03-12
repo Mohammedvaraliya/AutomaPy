@@ -237,12 +237,8 @@ class TuringMachine:
 
         Example:
             >>> input_state = {
-            ...     'A': {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('D', '_', 'L')},
-            ...     'B': {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('C', '_', 'L')},
-            ...     'C': {'0': ('C', '0', 'L'), '1': ('C', '1', 'L'), '_': ('A', '_', 'R')},
-            ...     'D': {'0': ('D', '0', 'L'), '1': ('D', '1', 'L'), '_': ('E', '_', 'R')},
-            ...     'E': {'0': ('D', '0', 'R'), '1': ('D', '1', 'R'), '_': ('F', '_', 'L')},
-            ...     'F': {'0': ('F', '0', 'L'), '1': ('F', '1', 'L'), '_': ('A', '_', 'R')},
+            ...     'A': {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('B', '_', 'L')},
+            ...     'B': {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('A', '_', 'L')}
             ... }
             >>> initial_state = 'A'
             >>> final_state = {'A'}
@@ -351,12 +347,8 @@ if __name__ == "__main__":
 
     # Design a program for Turing machine that’s accepts the even number of 1's.(Success)
     '''
-    tm.addState('A', {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('D', '_', 'L')}, initial_state=True, final_state=True)
-    tm.addState('B', {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('C', '_', 'L')})
-    tm.addState('C', {'0': ('C', '0', 'L'), '1': ('C', '1', 'L'), '_': ('A', '_', 'R')})
-    tm.addState('D', {'0': ('D', '0', 'L'), '1': ('D', '1', 'L'), '_': ('E', '_', 'R')})
-    tm.addState('E', {'0': ('D', '0', 'R'), '1': ('D', '1', 'R'), '_': ('F', '_', 'L')})
-    tm.addState('F', {'0': ('F', '0', 'L'), '1': ('F', '1', 'L'), '_': ('A', '_', 'R')})
+    tm.addState('A', {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('B', '_', 'L')}, initial_state=True, final_state=True)
+    tm.addState('B', {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('A', '_', 'L')})
 
     print(tm.turingMachineEvenOnes("")) # True (because 0 is even number)
     print(tm.turingMachineEvenOnes("1")) # False
