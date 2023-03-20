@@ -42,22 +42,13 @@ The third call to `endingWithOneZeroOne()` with the input string `"011011"` retu
 
 ```py
 
-from AutomaPy import DFA
+from AutomaPy.examples import ThreeConsecutiveOne
 
-dfa = DFA()
+dfa = ThreeConsecutiveOne()
 
-dfa.addState("A" , {"0": "A", "1":"B"}, initial_state = True)
-dfa.addState("B" , {"0": "A", "1":"C"})
-dfa.addState("C" , {"0": "A", "1":"D"})
-dfa.addState("D" , {"0": "F", "1":"E"}, final_state=True)
-dfa.addState("E" , {"0": "E", "1":"E"})
-dfa.addState("F", {"0": "F", "1":"G"}, final_state=True)
-dfa.addState("G", {"0": "F", "1":"H"}, final_state=True)
-dfa.addState("H", {"0": "F", "1":"D"}, final_state=True)
-
-print(dfa.threeConsecutiveOne("010111"))
-print(dfa.threeConsecutiveOne("01011"))
-print(dfa.threeConsecutiveOne("010101"))
+print(dfa.check_string("111")) # True
+print(dfa.check_string("11100")) # True
+print(dfa.check_string("1100")) # False
 
 ```
 

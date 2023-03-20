@@ -119,6 +119,11 @@ class DFA:
                 if word:
                     tokens.append(word)
                     word = ""
+        
+        if word:
+            tokens.append(word)
+            word = ""
+            
         return tokens
 
     def threeConsecutiveOne(self, string: str):

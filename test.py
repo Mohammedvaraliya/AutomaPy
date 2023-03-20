@@ -1,7 +1,7 @@
 from AutomaPy import DFA
 from AutomaPy import CountNumberOfOneZero
 
-dfa = CountNumberOfOneZero()
+dfa = DFA()
 
 
-print(dfa.check_string(input("Enter a string: ")))
+print(dfa.tokenize(input("Enter a string: ")))
