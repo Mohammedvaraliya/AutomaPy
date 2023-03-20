@@ -99,32 +99,7 @@ class DFA:
             return True
         return False
 
-    def tokenize(self, input_str):
-        """
-        Splits a string into tokens.
-
-        :param input_str: The input string to tokenize.
-        :type input_str: str
-        :return: A list of tokens.
-        :rtype: list
-        """
-        tokens = []
-        word = ""
-
-        for char in input_str:
-            if char.isalnum() or char.isalpha():
-                word += char
-
-            else:
-                if word:
-                    tokens.append(word)
-                    word = ""
-        
-        if word:
-            tokens.append(word)
-            word = ""
-            
-        return tokens
+    
 
     def threeConsecutiveOne(self, string: str):
         """
@@ -221,6 +196,35 @@ class DFA:
         """
         for key, value in self.input_state.items():
             print(key, ":", value)
+
+class Tokenizer:
+    def tokenize(self, input_str):
+        """
+        Splits a string into tokens.
+
+        :param input_str: The input string to tokenize.
+        :type input_str: str
+        :return: A list of tokens.
+        :rtype: list
+        """
+        tokens = []
+        word = ""
+
+        for char in input_str:
+            if char.isalnum() or char.isalpha():
+                word += char
+
+            else:
+                if word:
+                    tokens.append(word)
+                    word = ""
+        
+        if word:
+            tokens.append(word)
+            word = ""
+            
+        return tokens
+
 
 
 class TuringMachine:
