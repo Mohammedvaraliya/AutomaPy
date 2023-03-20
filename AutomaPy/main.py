@@ -1,5 +1,5 @@
 class DFA:
-    def __init__(self, input_state = {}, initial_state = None, final_state = []):
+    def __init__(self, input_state={}, initial_state=None, final_state=[]):
         """
         Initializes a new DFA object.
 
@@ -38,8 +38,19 @@ class DFA:
             self.final_state.append(state_name)
 
         return a
-    
-    def endingWithOneZeroOne(self, string:str):
+
+    def check_string(self, string: str):
+        current_state = self.initial_state  # By defaul initial state
+
+        for s in string:
+            current_state = self.input_state[current_state][s]
+
+        if current_state in self.final_state:
+            return True
+
+        return False
+
+    def endingWithOneZeroOne(self, string: str):
         """
         Checks whether a string ends with '101'.
 
@@ -55,7 +66,8 @@ class DFA:
             ("D" , {"0": "C", "1":"B"}, final_state=True)
 
         """
-        current_state = self.initial_state # By defaul initial state
+
+        current_state = self.initial_state  # By defaul initial state
 
         for s in string:
             current_state = self.input_state[current_state][s]
@@ -64,7 +76,7 @@ class DFA:
             return True
 
         return False
-    
+
     def decimalNumberDivisibleByTwo(self, string: str):
         """
         Checks whether a binary string represents a decimal number divisible by two.
@@ -137,14 +149,14 @@ class DFA:
             return True
 
         return False
-    
+
     def equalNumberOfOneZero(self, string: str):
         """
         Checks whether the given string has an equal number of 1's and 0's by traversing the DFA.
-        
+
         Args:
             string (str): The input string to check for an equal number of 1's and 0's.
-            
+
         Returns:
             bool: True if the input string has an equal number of 1's and 0's and ends in a final state,
                 False otherwise.
@@ -153,7 +165,7 @@ class DFA:
             ("A", {"0": "B", "1": "B"}, initial_state=True, final_state=True)\n
             ("B", {"0": "A", "1": "A"})
         """
-        current_state = self.initial_state # By defaul initial state
+        current_state = self.initial_state  # By defaul initial state
         count_0 = 0
         count_1 = 0
 
@@ -162,21 +174,21 @@ class DFA:
             if s == "0":
                 count_0 += 1
             if s == "1":
-                count_1 += 1 
+                count_1 += 1
             current_state = self.input_state[current_state][s]
 
         if current_state in self.final_state and count_0 == count_1:
             return True
 
         return False
-    
+
     def countNumberOfOneZero(self, string: str):
         """
         Counts the number of 1's and 0's in the given string by traversing the DFA.
-        
+
         Args:
             string (str): The input string to count the number of 1's and 0's.
-            
+
         Returns:
             str: A string indicating the number of 1's and 0's in the input string in the format 
                 "The Number of 1's is {count_1} and number of 0's is {count_0}".
@@ -184,7 +196,7 @@ class DFA:
         States = 
             ("A", {"0": "A", "1": "A"}, initial_state=True)
         """
-        current_state = self.initial_state # By defaul initial state
+        current_state = self.initial_state  # By defaul initial state
         count_0 = 0
         count_1 = 0
 
@@ -193,7 +205,7 @@ class DFA:
             if s == "0":
                 count_0 += 1
             if s == "1":
-                count_1 += 1 
+                count_1 += 1
             current_state = self.input_state[current_state][s]
 
         return f"The Number of 1's is {count_1} and number of 0's is {count_0}"
@@ -206,9 +218,8 @@ class DFA:
             print(key, ":", value)
 
 
-
 class TuringMachine:
-    def __init__(self, input_state = {}, initial_state = None, final_state = []):
+    def __init__(self, input_state={}, initial_state=None, final_state=[]):
         """
         Initializes a new TuringMAchine object.
 
@@ -303,10 +314,8 @@ class TuringMachine:
                 return False
 
 
-
-
 if __name__ == "__main__":
-    
+
     dfa = DFA()
     tm = TuringMachine()
 
@@ -382,5 +391,3 @@ if __name__ == "__main__":
     print(tm.turingMachineEvenOnes("1")) # False
     print(tm.turingMachineEvenOnes("1111")) # True
     '''
-
-
