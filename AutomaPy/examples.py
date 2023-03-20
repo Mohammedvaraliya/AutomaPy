@@ -8,11 +8,10 @@ class EndingWithOneZeroOne:
         self.dfa = DFA()
 
         # Add the states to DFA
-        self.dfa.addState("A", {"0": "A", "1": "B"}, initial_state=True)
-        self.dfa.addState("B", {"0": "C", "1": "B"})
-        self.dfa.addState("B", {"0": "C", "1": "B"})
-        self.dfa.addState("C", {"0": "A", "1": "D"})
-        self.dfa.addState("D", {"0": "C", "1": "B"}, final_state=True)
+        self.dfa.addState("A" , {"0": "A", "1":"B"}, initial_state = True)
+        self.dfa.addState("B" , {"0": "C", "1":"B"})
+        self.dfa.addState("C" , {"0": "A", "1":"D"})
+        self.dfa.addState("D" , {"0": "C", "1":"B"}, final_state=True)
 
     def check_string(self, string):
         return self.dfa.check_string(string)
@@ -24,8 +23,7 @@ class DecimalNumberDivisibleByTwo:
         self.dfa = DFA()
 
         # Add the states to DFA
-        self.dfa.addState("A", {"0": "A", "1": "B"},
-                          initial_state=True, final_state=True)
+        self.dfa.addState("A", {"0": "A", "1": "B"}, initial_state=True, final_state=True)
         self.dfa.addState("B", {"0": "A", "1": "B"})
 
     def check_string(self, string):
@@ -38,10 +36,14 @@ class ThreeConsecutiveOne:
         self.dfa = DFA()
 
         # Add the states to DFA
-        self.dfa.addState("A", {"0": "A", "1": "B"}, initial_state=True)
-        self.dfa.addState("B", {"0": "A", "1": "C"})
-        self.dfa.addState("C", {"0": "A", "1": "D"})
-        self.dfa.addState("D", {"0": "A", "1": "D"}, final_state=True)
+        self.dfa.addState("A" , {"0": "A", "1":"B"}, initial_state = True)
+        self.dfa.addState("B" , {"0": "A", "1":"C"})
+        self.dfa.addState("C" , {"0": "A", "1":"D"})
+        self.dfa.addState("D" , {"0": "F", "1":"E"}, final_state=True)
+        self.dfa.addState("E" , {"0": "E", "1":"E"})
+        self.dfa.addState("F", {"0": "F", "1":"G"}, final_state=True)
+        self.dfa.addState("G", {"0": "F", "1":"H"}, final_state=True)
+        self.dfa.addState("H", {"0": "F", "1":"D"}, final_state=True)
 
     def check_string(self, string):
         return self.dfa.check_string(string)
@@ -49,41 +51,30 @@ class ThreeConsecutiveOne:
 
 # DFA for string having equal number of 1's and 0's
 class EqualNumberOfOneZero:
+
+    def __init__(self):
+        self.dfa = DFA()
+
+        # Add the states to DFA
+        self.dfa.addState("A", {"0": "B", "1": "B"}, initial_state=True, final_state=True)
+        self.dfa.addState("B", {"0": "A", "1": "A"})
+
     def check_string(self, string):
-
-        count_0 = 0
-        count_1 = 0
-
-        for s in string:
-            # Transition to next state
-            if s == "0":
-                count_0 += 1
-            if s == "1":
-                count_1 += 1
-
-        if count_0 == count_1:
-            return True
-
-        return False
+        return self.dfa.equalNumberOfOneZero(string)
+        
 
 
 # DFA counts the number of one and zero
 class CountNumberOfOneZero:
+
+    def __init__(self):
+        self.dfa = DFA()
+
+        # Add the states to DFA
+        self.dfa.addState("A", {"0": "A", "1": "A"}, initial_state=True)
+
     def check_string(self, string):
-        count_0 = 0
-        count_1 = 0
-
-        for s in string:
-            # Transition to next state
-            if s == "0":
-                count_0 += 1
-            if s == "1":
-                count_1 += 1
-
-        return {
-            "0": count_0,
-            "1": count_1
-        }
+        return self.dfa.countNumberOfOneZero(string)
 
 
 # Turing machine that’s accepts the even number of 1's.

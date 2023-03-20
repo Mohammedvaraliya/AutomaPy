@@ -19,18 +19,11 @@ The package contains a set of tools and algorithms for theoretical computer scie
 
 ```py
 
-from AutomaPy import DFA
+from AutomaPy.examples import EndingWithOneZeroOne
 
-dfa = DFA()
+dfa = EndingWithOneZeroOne()
 
-dfa.addState("A" , {"0": "A", "1":"B"}, initial_state = True)
-dfa.addState("B" , {"0": "C", "1":"B"})
-dfa.addState("C" , {"0": "A", "1":"D"})
-dfa.addState("D" , {"0": "C", "1":"B"}, final_state=True)
-
-print(dfa.endingWithOneZeroOne("101"))
-print(dfa.endingWithOneZeroOne("01101"))
-print(dfa.endingWithOneZeroOne("011011"))
+print(dfa.check_string("101"))
 
 ```
 
