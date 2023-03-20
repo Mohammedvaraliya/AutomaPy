@@ -12,7 +12,7 @@ def read_description():
         return contents.strip()
     
 
-VERSION = '1.2.5'
+VERSION = '1.2.7'
 DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, Moore machines, Finite state machine and Turing machine.'
 
 # Setting up
@@ -36,5 +36,9 @@ setup(
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
         "Operating System :: POSIX :: Linux",
-    ]
+    ],
+    entry_points={
+        'console_scripts': ['AutomaPy=AutomaPy.help_command:main']
+    }
+    
 )

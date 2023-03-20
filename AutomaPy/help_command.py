@@ -38,7 +38,7 @@ def main():
     parser = argparse.ArgumentParser(description=description, 
                                      formatter_class=argparse.RawTextHelpFormatter)
     
-    parser.add_argument('--help', action='store_true', help='display help information')
+    # parser.add_argument('--help', action='store_true', help='display help information')
     args = parser.parse_args()
     
     if args.help:
