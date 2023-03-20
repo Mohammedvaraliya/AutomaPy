@@ -84,16 +84,13 @@ In the given code, the `tokenize` method is called with the input string `"This 
 
 ```py
 
-from AutomaPy import DFA
+from AutomaPy.examples import DecimalNumberDivisibleByTwo
 
-dfa = DFA()
+dfa = DecimalNumberDivisibleByTwo()
 
-dfa.addState("A", {"0": "A", "1": "B"}, initial_state=True, final_state=True)
-dfa.addState("B", {"0": "A", "1": "B"})
-
-print(dfa.decimalNumberDivisibleByTwo("10")) # Decimal number of "10" is 2
-print(dfa.decimalNumberDivisibleByTwo("110")) # Decimal number of "10" is 6
-print(dfa.decimalNumberDivisibleByTwo("101")) # Decimal number of "10" is 5
+print(dfa.check_string("111")) # True
+print(dfa.check_string("11100")) # True
+print(dfa.check_string("1001")) # False
 
 ```
 
@@ -104,16 +101,13 @@ The code creates a DFA that recognizes decimal numbers divisible by 2 using the 
 
 ```py
 
-from AutomaPy import DFA
+from AutomaPy.examples import EqualNumberOfOneZero
 
-dfa = DFA()
+dfa = EqualNumberOfOneZero()
 
-dfa.addState("A", {"0": "B", "1": "B"}, initial_state=True, final_state=True)
-dfa.addState("B", {"0": "A", "1": "A"})
-
-print(dfa.equalNumberOfOneZero("10"))
-print(dfa.equalNumberOfOneZero("101100"))
-print(dfa.equalNumberOfOneZero("1011"))
+print(dfa.check_string("111000")) # True
+print(dfa.check_string("111001")) # False
+print(dfa.check_string("1100")) # True
 
 ```
 
@@ -124,16 +118,13 @@ The code creates a DFA that recognizes strings containing an equal number of `1s
 
 ```py
 
-from AutomaPy import DFA
+from AutomaPy.examples import CountNumberOfOneZero
 
-dfa = DFA()
+dfa = CountNumberOfOneZero()
 
-dfa.addState("A", {"0": "A", "1": "A"}, initial_state=True)
-
-print(dfa.countNumberOfOneZero("0101"))
-print(dfa.countNumberOfOneZero("01"))
-print(dfa.countNumberOfOneZero("011111"))
-print(dfa.countNumberOfOneZero("00000"))
+print(dfa.check_string("111000")) # True
+print(dfa.check_string("111001")) # False
+print(dfa.check_string("1100")) # True
 
 ```
 
@@ -146,16 +137,12 @@ For example, if the input string is `"0101"`, the method will return `"The numbe
 
 ```py
 
-from AutomaPy import TuringMachine
+from AutomaPy.examples import TuringMachineEvenOnes
 
-tm = TuringMachine()
+dfa = TuringMachineEvenOnes()
 
-tm.addState('A', {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('B', '_', 'L')}, initial_state=True, final_state=True)
-tm.addState('B', {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('A', '_', 'L')})
-
-print(tm.turingMachineEvenOnes("")) # True (because 0 is even number)
-print(tm.turingMachineEvenOnes("1")) # False
-print(tm.turingMachineEvenOnes("1111")) # True
+print(dfa.check_string("101111")) #False because 5 is odd (there is 5 1's)
+print(dfa.check_string("101")) #True because 2 is even (there is 2 1's)
 
 ```
 
@@ -164,4 +151,8 @@ The `turingMachineEvenOnes()` method checks whether a binary input string has an
 It returns a boolean indicating whether the input string is accepted by the Turing machine, which is `True` if the string has an even number of `1's` and `False` otherwise.
 
 
+#### You can enter following command to see what functions this package have.
 
+```bash
+AutomaPy --help
+```
