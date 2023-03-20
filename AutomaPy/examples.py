@@ -87,7 +87,7 @@ class CountNumberOfOneZero:
 
 
 # Turing machine that’s accepts the even number of 1's.
-class turingMachineEvenOnes:
+class TuringMachineEvenOnes:
     def __init__(self):
         self.tm = TuringMachine()
 
