@@ -12,7 +12,7 @@ def read_description():
         return contents.strip()
     
 
-VERSION = '1.3.2'
+VERSION = '1.3.3'
 DESCRIPTION = 'This package refers to the topic of automata theory, which includes DFA, NDFA, Mealy machines, Moore machines, Finite state machine and Turing machine.'
 
 # Setting up
