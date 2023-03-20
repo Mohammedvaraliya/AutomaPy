@@ -2,3 +2,4 @@ dist
 build
 AutomaPy.egg-info
 publishing_commands.txt
+__pycache__

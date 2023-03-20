@@ -1,4 +1,4 @@
-from AutomaPy.main import DFA
+from AutomaPy.main import DFA, TuringMachine
 
 # DFA for string ending with 101
 
@@ -84,3 +84,17 @@ class CountNumberOfOneZero:
             "0": count_0,
             "1": count_1
         }
+
+
+# Turing machine that’s accepts the even number of 1's.
+class turingMachineEvenOnes:
+    def __init__(self):
+        self.tm = TuringMachine()
+
+        # Add the states to TuringMachine
+        self.tm.addState('A', {'0': ('A', '0', 'R'), '1': ('B', '0', 'R'), '_': ('B', '_', 'L')}, initial_state=True, final_state=True)
+        self.tm.addState('B', {'0': ('B', '0', 'R'), '1': ('A', '0', 'R'), '_': ('A', '_', 'L')})
+
+    def check_string(self, string):
+        return self.tm.turingMachineEvenOnes(string)
+    
