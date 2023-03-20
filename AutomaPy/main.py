@@ -49,10 +49,11 @@ class DFA:
         :rtype: bool
 
         States = 
-        ("A" , {"0": "A", "1":"B"}, initial_state = True)
-        ("B" , {"0": "C", "1":"B"})
-        ("C" , {"0": "A", "1":"D"})
-        ("D" , {"0": "C", "1":"B"}, final_state=True)
+            ("A" , {"0": "A", "1":"B"}, initial_state = True)\n
+            ("B" , {"0": "C", "1":"B"})\n
+            ("C" , {"0": "A", "1":"D"})\n
+            ("D" , {"0": "C", "1":"B"}, final_state=True)
+
         """
         current_state = self.initial_state # By defaul initial state
 
@@ -74,8 +75,8 @@ class DFA:
         :rtype: bool
 
         States = 
-        ("A", {"0": "A", "1": "B"}, initial_state=True, final_state=True)
-        ("B", {"0": "A", "1": "B"})
+            ("A", {"0": "A", "1": "B"}, initial_state=True, final_state=True)\n
+            ("B", {"0": "A", "1": "B"})
         """
         current_state = self.initial_state  # By defaul initial state
 
@@ -118,14 +119,14 @@ class DFA:
         :rtype: bool
 
         States = 
-        ("A" , {"0": "A", "1":"B"}, initial_state = True)
-        "A", "1":"C"})
-        "A", "1":"D"})
-        "F", "1":"E"}, final_state=True)
-        "E", "1":"E"})
-        F", "1":"G"}, final_state=True)
-        F", "1":"H"}, final_state=True)
-        F", "1":"D"}, final_state=True)
+            ("A" , {"0": "A", "1":"B"}, initial_state = True)\n
+            ("B" , {"0": "A", "1":"C"})\n
+            ("C" , {"0": "A", "1":"D"})\n
+            ("D" , {"0": "F", "1":"E"}, final_state=True)\n
+            ("E" , {"0": "E", "1":"E"})\n
+            ("F", {"0": "F", "1":"G"}, final_state=True)\n
+            ("G", {"0": "F", "1":"H"}, final_state=True)\n
+            ("H", {"0": "F", "1":"D"}, final_state=True)
         """
         current_state = self.initial_state  # By defaul initial state
 
@@ -149,8 +150,8 @@ class DFA:
                 False otherwise.
 
         States = 
-        ("A", {"0": "B", "1": "B"}, initial_state=True, final_state=True)
-        ("B", {"0": "A", "1": "A"})
+            ("A", {"0": "B", "1": "B"}, initial_state=True, final_state=True)\n
+            ("B", {"0": "A", "1": "A"})
         """
         current_state = self.initial_state # By defaul initial state
         count_0 = 0
@@ -181,7 +182,7 @@ class DFA:
                 "The Number of 1's is {count_1} and number of 0's is {count_0}".
 
         States = 
-        ("A", {"0": "A", "1": "A"}, initial_state=True)
+            ("A", {"0": "A", "1": "A"}, initial_state=True)
         """
         current_state = self.initial_state # By defaul initial state
         count_0 = 0
