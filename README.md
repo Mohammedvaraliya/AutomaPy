@@ -86,9 +86,9 @@ from AutomaPy import CountNumberOfOneZero
 
 dfa = CountNumberOfOneZero()
 
-print(dfa.check_string("111000")) # True
-print(dfa.check_string("111001")) # False
-print(dfa.check_string("1100")) # True
+print(dfa.check_string("111000")) # The Number of 1's is 3 and number of 0's is 3
+print(dfa.check_string("111001")) # The Number of 1's is 4 and number of 0's is 2
+print(dfa.check_string("1100")) # The Number of 1's is 2 and number of 0's is 2
 
 ```
 
