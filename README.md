@@ -20,7 +20,7 @@ from AutomaPy import EndingWithOneZeroOne
 
 dfa = EndingWithOneZeroOne()
 
-print(dfa.check_string("101"))
+print(dfa.check_string("101")) # True
 
 ```
 
@@ -58,9 +58,9 @@ from AutomaPy import DecimalNumberDivisibleByTwo
 
 dfa = DecimalNumberDivisibleByTwo()
 
-print(dfa.check_string("111")) # True
-print(dfa.check_string("11100")) # True
-print(dfa.check_string("1001")) # False
+print(dfa.check_string("10")) # Decimal number of "10" is 2
+print(dfa.check_string("110")) # Decimal number of "10" is 6
+print(dfa.check_string("101")) # Decimal number of "10" is 5
 
 ```
 
@@ -72,9 +72,9 @@ from AutomaPy import EqualNumberOfOneZero
 
 dfa = EqualNumberOfOneZero()
 
-print(dfa.check_string("111000")) # True
-print(dfa.check_string("111001")) # False
-print(dfa.check_string("1100")) # True
+print(dfa.check_string("10")) # True
+print(dfa.check_string("101100")) # True
+print(dfa.check_string("1011")) # False
 
 ```
 
@@ -98,10 +98,11 @@ print(dfa.check_string("1100")) # The Number of 1's is 2 and number of 0's is 2
 
 from AutomaPy import TuringMachineEvenOnes
 
-dfa = TuringMachineEvenOnes()
+tm = TuringMachineEvenOnes()
 
-print(dfa.check_string("101111")) #False because 5 is odd (there is 5 1's)
-print(dfa.check_string("101")) #True because 2 is even (there is 2 1's)
+print(tm.check_string("")) # True (because 0 is even number)
+print(tm.check_string("1")) # False
+print(tm.check_string("1111")) # True
 
 ```
 
